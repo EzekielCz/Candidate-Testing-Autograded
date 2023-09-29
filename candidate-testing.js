@@ -16,7 +16,7 @@ let questions = ["Who was the first American woman in space? ", "True or false: 
 "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", "What is the minimum crew size for the ISS? "];
 let correctAnswers = ["Sally Ride","true", "40", "Trajectory", "3"]; 
 let candidateAnswers = [];
-let numCorrectAnswers = 0;
+
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //"
@@ -27,26 +27,27 @@ function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
     for (let i = 0; i <questions.length; i++){
       candidateAnswers[i] = input.question(questions[i]);
-      //candidateAnswers.push(input.question(questions[i]))
+      // candidateAnswers.push(input.question(questions[i]))
     }
 
 }
 
 function gradeQuiz(candidateAnswers) {
+let numCorrectAnswers = 0;
 let grade = 0;
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly 
   for (let i =0; i <correctAnswers.length; i++){
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){  
-        numCorrectAnswers = numCorrectAnswers + 1 
+        // numCorrectAnswers = numCorrectAnswers + 1; 
+        numCorrectAnswers++;
     }
   }
-   grade = (numCorrectAnswers) / (questions.length) * 100
+   grade = (numCorrectAnswers) / (questions.length) * 100;
   
    console.log(`Good job on completeing the test your grade was: ${grade}% `);
 
 
  // let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
 
   return grade;
 }
